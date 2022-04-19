@@ -27,6 +27,7 @@ import com.algaworks.algamoneyapy.event.RecursoCriadoEvent;
 import com.algaworks.algamoneyapy.exceptionhandler.AlgamoneyExceptionHandler.Erro;
 import com.algaworks.algamoneyapy.model.Lancamento;
 import com.algaworks.algamoneyapy.repository.LancamentoRepository;
+import com.algaworks.algamoneyapy.repository.filter.LancamentoFilter;
 import com.algaworks.algamoneyapy.service.LancamentoService;
 import com.algaworks.algamoneyapy.service.exception.PessoaInexistenteOuInativaException;
 
@@ -47,7 +48,7 @@ public class LancamentoResource {
 	private MessageSource messageSource;
 
 	@GetMapping
-	public ResponseEntity<?> listar() {
+	public ResponseEntity<?> pesquisar(LancamentoFilter lancamentoFilter) {
 		List<Lancamento> lista = lancamentoRepository.findAll();
 
 		return !lista.isEmpty() ? ResponseEntity.ok(lista) : ResponseEntity.notFound().build();

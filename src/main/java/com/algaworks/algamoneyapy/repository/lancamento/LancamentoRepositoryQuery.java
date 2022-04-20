@@ -9,3 +9,4 @@ public interface LancamentoRepositoryQuery {
 
 	public List<Lancamento> filtrar(LancamentoFilter lancamentoFilter);
 }
+ 
